@@ -8,13 +8,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-  workflow_call:
-    inputs:
-      url:
-        default: 'https://www.google.com'
-        required: true
-        type: string
-
 jobs:
   build:
 
@@ -28,25 +21,16 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
-#
-#    - name: Write value from Properties-file
-#      id: write_property
-#      uses: Reedyuk/write-properties@v1.0.1
-#      with:
-#        path: './Configuration/config.properties'
-#        property: BROWSER
-#        value: chrome
-#
-    - name: Write value to Properties-file
-      uses: christian-draeger/write-properties@1.1.0
+
+    - name: Write value from Properties-file
+      id: write_property
+      uses: Reedyuk/write-properties@v1.0.1
       with:
         path: './Configuration/config.properties'
-        property: |
-          BROWSER
-          URL
-        value: |
-          chrome
-          ${{ inputs.url }}
+        property: BROWSER
+        value: chrome
+
+
     - name: Read value from Properties-file
       id: read_property
       uses: christian-draeger/read-properties@1.1.0
