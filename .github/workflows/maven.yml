@@ -8,6 +8,12 @@ on:
   pull_request:
     branches: [ "master" ]
 
+  workflow_call:
+    inputs:
+      environment:
+        name: env_url
+        url: https://www.google.com
+
   workflow_dispatch:
     inputs:
       logLevel:
@@ -27,9 +33,7 @@ on:
         description: 'Test scenario tags'
         required: true
         type: string
-      environment:
-        name: env_url
-        url: https://www.google.com
+
 
 jobs:
   print-tag:
