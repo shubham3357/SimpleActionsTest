@@ -35,10 +35,10 @@ jobs:
       with:
         path: './Configuration/config.properties'
         property: |
-          'BROWSER'
-          'URL'
+          BROWSER
+          URL
         value: |
-          'chrome'
+          chrome
           'https:\/\/www.google.com'
     - name: Read value from Properties-file
       id: read_property
