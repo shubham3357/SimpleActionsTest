@@ -21,15 +21,18 @@ public class Demo
     @BeforeClass
     public void setUp()
     {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.navigate().to(url);
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        if(rc.getBrowser().equalsIgnoreCase("chrome")){
+            System.out.println("Chrome initialized successfully");
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.navigate().to(url);
+            driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        }
     }
     @Test
     public void userLogin()

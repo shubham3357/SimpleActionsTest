@@ -23,4 +23,7 @@ public class ReadConfig {
         return url;
     }
 
+    public String getBrowser() {
+        return pro.getProperty("BROWSER");
+    }
 }
