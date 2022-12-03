@@ -15,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class Demo
 {
     public WebDriver driver;
+    public static ReadConfig rc = new ReadConfig();
+    public static String url = rc.getApplicationURL();
 
     @BeforeClass
     public void setUp()
@@ -26,7 +28,7 @@ public class Demo
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.navigate().to("https://www.google.com");
+        driver.navigate().to(url);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }
     @Test

@@ -21,6 +21,13 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
+    - name: Write value from Properties-file
+      id: write_property
+      uses: Reedyuk/write-properties@v1.0.1
+      with:
+        path: './Configuration/config.properties'
+        property: 'URL'
+        value: 'www.google.com'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
