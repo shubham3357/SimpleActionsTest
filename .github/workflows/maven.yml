@@ -26,8 +26,8 @@ jobs:
       uses: Reedyuk/write-properties@v1.0.1
       with:
         path: './Configuration/config.properties'
-        property: 'URL'
-        value: 'www.google.com'
+        property: URL
+        value: "www.google.com"
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
