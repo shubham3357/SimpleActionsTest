@@ -27,7 +27,7 @@ jobs:
       with:
         path: './Configuration/config.properties'
         property: URL
-        value: "www.google.com"
+        value: www.google.com
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
