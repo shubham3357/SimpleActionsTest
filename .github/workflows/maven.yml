@@ -28,9 +28,8 @@ on:
         required: true
         type: string
       environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
+        name: env_url
+        url: https://www.google.com
 
 jobs:
   print-tag:
@@ -56,8 +55,8 @@ jobs:
       uses: Reedyuk/write-properties@v1.0.1
       with:
         path: './Configuration/config.properties'
-        property: BROWSER
-        value: chrome
+        property: URL
+        value: ${{ inputs.environment }}
 
     - name: Read value from Properties-file
       id: read_property
