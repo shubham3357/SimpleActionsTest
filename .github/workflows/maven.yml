@@ -27,7 +27,7 @@ jobs:
       with:
         path: './Configuration/config.properties'
         property: URL
-        value: www.google.com
+        value: https://www.google.com
     - name: Read value from Properties-file
       id: read_property
       uses: christian-draeger/read-properties@1.1.0
