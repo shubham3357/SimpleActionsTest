@@ -56,7 +56,7 @@ jobs:
       with:
         path: './Configuration/config.properties'
         property: URL
-        value: ${{ inputs.env_url }}
+        value: ${{ inputs.environment.url }}
 
     - name: Read value from Properties-file
       id: read_property
