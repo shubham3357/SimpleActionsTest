@@ -13,9 +13,6 @@ on:
       environment:
         name: env_url
         url: https://www.google.com
-
-  workflow_dispatch:
-    inputs:
       logLevel:
         description: 'Log level'
         required: true
