@@ -21,19 +21,31 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
-    - name: Write value from Properties-file
-      id: write_property
-      uses: Reedyuk/write-properties@v1.0.1
+#
+#    - name: Write value from Properties-file
+#      id: write_property
+#      uses: Reedyuk/write-properties@v1.0.1
+#      with:
+#        path: './Configuration/config.properties'
+#        property: BROWSER
+#        value: chrome
+#
+    - name: Write value to Properties-file
+      uses: christian-draeger/write-properties@1.1.0
       with:
         path: './Configuration/config.properties'
-        property: BROWSER
-        value: chrome
+        property: |
+          'BROWSER'
+          'URL'
+        value: |
+          'chrome'
+          'https:\/\/www.google.com'
     - name: Read value from Properties-file
       id: read_property
       uses: christian-draeger/read-properties@1.1.0
       with:
         path: './Configuration/config.properties'
-        properties: BROWSER
+        properties: BROWSER URL
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
