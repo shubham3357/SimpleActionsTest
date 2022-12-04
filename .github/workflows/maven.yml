@@ -8,9 +8,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  URL: https://www.google.com
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,8 +25,8 @@ jobs:
       uses: Reedyuk/write-properties@v1.0.1
       with:
         path: './Configuration/config.properties'
-        property: URL
-        value: $URL
+        property: BROWSER
+        value: chrome
 
     - name: Read value from Properties-file
       id: read_property
