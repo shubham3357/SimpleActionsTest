@@ -24,12 +24,12 @@ public class Demo
         if(rc.getBrowser().equalsIgnoreCase("chrome")){
             System.out.println("Chrome initialized successfully");
             WebDriverManager.chromedriver().setup();
-            /*ChromeOptions options = new ChromeOptions();
+            ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--headless");
-            driver = new ChromeDriver(options);*/
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
+            //driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.navigate().to(url);
             driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
